@@ -1,9 +1,10 @@
 "use client";
 import React, { useState } from 'react';
 import { BarsOutlined, CloseOutlined, EditOutlined, FormOutlined } from '@ant-design/icons';
+import Image from 'next/image';
 
 import Logo from '@/assets/images/Logo.png';
-import IconButton from '@/src/components/Button/IconButton';
+import IconButton from '@/src/components/button/IconButton';
 import { NavLinks, SelectedPage } from '@/src/interface/index';
 import Link from '@/node_modules/next/link';
 
@@ -32,7 +33,7 @@ const Navbar = ({ isTopOfPage }: Props) => {
                 </button>
 
                 <div className="mr-4">
-                    {/* <img src={Logo} alt="Logo" className="w-8 h-8"/> */}
+                    <Image src={Logo} alt="Logo" className="w-8 h-8"/>
                 </div>
                 <ul className="hidden md:flex space-x-4 m-0">
                     {NavLinks.map((link) => (
@@ -49,17 +50,17 @@ const Navbar = ({ isTopOfPage }: Props) => {
                 <div className="hidden md:block mr-4">
                     <input type="text" placeholder="Search" className="px-4 py-2 border rounded-lg" />
                 </div>
-                <IconButton onClick={() => console.log('Edit button clicked')}>
+                <IconButton onClick={() => console.log('Write button clicked')}>
                     <EditOutlined />
                     <span className="pl-1.5">Write</span>
                 </IconButton>
 
-                <IconButton onClick={() => console.log('Edit button clicked')}>
+                <IconButton onClick={() => console.log('Login')}>
                     <span className="pl-1.5">Login</span>
                 </IconButton>
 
                 <div className="hidden md:inline-block w-10 h-10 ml-4 border rounded-full">
-                    {/* <img src={Logo} alt="Avatar" className="w-full h-full rounded-full"/> */}
+                    <Image src={Logo} alt="Avatar" className="w-full h-full rounded-full"/>
                 </div>
             </div>
         </nav>
