@@ -1,16 +1,19 @@
-import { connect } from 'react-redux'
+import { useDispatch,useSelector } from 'react-redux'
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
 
-import { updateCollapse } from '@/src/redux/modules/menu/action'
+import { changeCollapse } from '@/src/redux/modules/menu/collapseSlice'
+import { useEffect } from 'react';
+import { RootState } from '@/src/redux/store';
 
-export const CollapseIcon = (props: any) => {
-  
-    const { isCollapse, updateCollapse } = props
+export const CollapseIcon = () => {
+    const isCollapse = useSelector((state:RootState) => state.collapseReducer.isCollapse);
+
+    const dispatch = useDispatch();
     return (
         <div
             className="collapsed flex items-center"
             onClick={() => {
-                updateCollapse(!isCollapse)
+                dispatch(changeCollapse())
             }}
         >
             {isCollapse ? (

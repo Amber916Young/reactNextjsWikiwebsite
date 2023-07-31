@@ -2,7 +2,9 @@ import './index.css'
 
 const LayoutFooter = () => (
     <>
-        <div className="footer"></div>
+        <div className="footer">
+            WITCHAT 
+        </div>
     </>
 )
 

@@ -13,7 +13,6 @@ import {
   SettingOutlined,
 } from "@ant-design/icons";
 import { Menu as MenuType, menuList } from "@/src/interface";
-import { useLocation } from "react-router-dom";
 
 type MenuItem = Required<MenuProps>["items"][number];
 
@@ -40,10 +39,10 @@ const items: MenuProps["items"] = [
   ]),
 
   getItem("文章管理", "group1", <AppstoreOutlined />, [
-    getItem("文章列表", "/admin/article/list/index"),
-    getItem("操作历史", "/admin/article/history/index"),
-    getItem("分类管理", "/admin/article/category/index"),
-    getItem("标签管理", "/admin/article/tags/index")
+    getItem("文章列表", "/admin/article/list"),
+    getItem("操作历史", "/admin/article/history"),
+    getItem("分类管理", "/admin/article/category"),
+    getItem("标签管理", "/admin/article/tags")
   ]),
 
   { type: "divider" },
@@ -74,12 +73,25 @@ const findOpenKeys = (key: string, menus: any) => {
   findInfo(menus);
   return result;
 };
+const getOpenKeys = (keys: string | undefined): string[] => {
+  if (!keys) {
+      return []
+  }
+  const paths = keys.split('/')
+  paths.shift()
+  const openKeys = paths.map((item, index) => {
+      let key = ''
+      if (index == 0) {
+          key = '/' + item
+      } else {
+          key = paths[index - 1] + '/' + item
+      }
+      paths[index] = key
+      return key
+  })
+  return openKeys
+}
 
-/**
- * 获取当前选中的数据的所有父节点
- * @param key
- * @returns
- */
 const findDeepPath = (key: string, menus: any) => {
   const result: any = []; // 处理完所有的menu数据成为一个一维数组
   const findInfo = (arr: any) => {
@@ -100,53 +112,42 @@ const findDeepPath = (key: string, menus: any) => {
   return [];
 };
 
-const getOpenKeys = (keys: string | undefined): string[] => {
-    if (!keys) {
-        return []
-    }
-    const paths = keys.split('/')
-    paths.shift()
-    const openKeys = paths.map((item, index) => {
-        let key = ''
-        if (index == 0) {
-            key = '/' + item
-        } else {
-            key = paths[index - 1] + '/' + item
-        }
-        paths[index] = key
-        return key
-    })
-    return openKeys
-}
 const LayoutSider: React.FC = () => {
-  //   const router = useRouter();
   const pathname = usePathname();
   const router = useRouter();
-//   const [defSelectKeys] = useState([pathname])
-//   const [openKeys, setOpenKeys] = useState(getOpenKeys(pathname))
   const tmpOpenKeys = findOpenKeys(pathname, items);
+  const [selectedKeys, setSelectedKeys] = useState<string[]>(tmpOpenKeys);
+
+  const [openKeys, setOpenKeys] = useState(getOpenKeys(pathname))
+  const [defSelectKeys] = useState([pathname])
+
 
   const onOpenChange: MenuProps["onOpenChange"] = (keys) => {
-    // const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
-    // const openkey: string[] = getOpenKeys(latestOpenKey);
-    // setOpenKeys(openkey);
-
+    const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1)
+    const openkey: string[] = getOpenKeys(latestOpenKey)
+    setOpenKeys(openkey)
   };
 
-  // 点击当前菜单跳转页面
   const clickMenu: MenuProps["onClick"] = ({ key }: { key: string }) => {
     router.push(key);
   };
 
   useEffect(() => {
-    // getMenuData();
-  }, [menuList]);
+    localStorage.setItem("selectedMenuItem", JSON.stringify(selectedKeys));
+  }, [selectedKeys]);
+  useEffect(() => {
+    const storedSelectedKeys = localStorage.getItem("selectedMenuItem");
+    if (storedSelectedKeys) {
+      setSelectedKeys(JSON.parse(storedSelectedKeys));
+    }
+  }, []);
 
+  
   return (
     <Menu
       mode="inline"
-      defaultOpenKeys={tmpOpenKeys}
-      defaultSelectedKeys={tmpOpenKeys}
+      defaultSelectedKeys={defSelectKeys}
+      openKeys={openKeys}
       onClick={clickMenu}
       onOpenChange={onOpenChange}
       items={items}

@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import { Descriptions } from "antd";
 type Props = {};
@@ -6,12 +7,7 @@ export default function aboutPage() {
   return (
     <>
       <div className="card">
-        <div>dskksadjklsadjl</div>
-        <div>dskksadjklsadjl</div>
-        <div>dskksadjklsadjl</div>
-        <div>dskksadjklsadjl</div>
-        <div>dskksadjklsadjl</div>
-        {/* <Descriptions title="Witch Admin" bordered>
+        <Descriptions title="Witch Admin" bordered>
           <Descriptions.Item label="GitHub" span={3}>
             <a
               style={{ color: "#1890ff" }}
@@ -36,7 +32,7 @@ export default function aboutPage() {
             <br />
             vite: ^4.2.0
           </Descriptions.Item>
-        </Descriptions> */}
+        </Descriptions>
       </div>
     </>
   );

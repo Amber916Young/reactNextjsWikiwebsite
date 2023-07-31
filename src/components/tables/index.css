@@ -1,0 +1,88 @@
+.mu-custom-tables {
+    border: 1px solid var(--border-color-base);
+    padding-inline: 24px;
+    padding-block: 16px;
+    border-radius: 6px;
+}
+
+.mu-custom-tables .ant-popover {
+    padding: 12px;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    background-clip: padding-box;
+    box-shadow: 0 6px 16px 0 rgb(0 0 0 / 8%), 0 3px 6px -4px rgb(0 0 0 / 12%),
+        0 9px 28px 8px rgb(0 0 0 / 5%);
+
+}
+
+.mu-custom-tables .ant-table {
+    background: var(--card-bg);
+}
+
+.mu-custom-tables .ant-table {
+    background: var(--card-bg);
+}
+
+.mu-custom-tables .header-left.ant-btn {
+    width: auto;
+    margin: 0 6px;
+}
+
+.mu-custom-tables th,
+tr {
+    color: var(--text-color);
+    background: var(--card-bg);
+}
+
+.mu-custom-tables th,
+td {
+    border-color: var(--table-border-color);
+}
+
+
+.mu-custom-tables .ant-table-thead th,
+tr {
+    background: var(--table-header-bg);
+}
+
+.mu-custom-tables .ant-table-row-selected,
+.ant-table-row-selected:hover td,
+.ant-table-cell-row-hover {
+    background: var(--table-header-bg);
+}
+
+.mu-custom-tables .ant-table-cell-row-hover {
+    background: var(--table-header-bg) !important;
+}
+
+.mu-custom-tables .ant-popover .ant-popover-inner {
+    background-color: var(--card-bg);
+    box-shadow: none;
+}
+
+.mu-custom-tables .ant-popover .ant-popover-inner .ant-popover-title {
+    padding: 5px;
+}
+
+.mu-custom-tables .ant-popover .ant-popover-inner .ant-checkbox-disabled+span {
+    color: var(--disabled-color);
+}
+
+.mu-custom-tables .ant-popover .ant-popover-inner .set-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 32px;
+}
+
+.mu-custom-tables .ant-popover .ant-popover-inner .set-header .ant-btn {
+    padding: 0;
+}
+
+.mu-custom-tables .ant-popover .ant-popover-inner .ant-checkbox-wrapper {
+    display: flex;
+}
+
+.mu-custom-tables .ant-popover .ant-popover-inner .ant-popover-arrow {
+    display: none;
+}

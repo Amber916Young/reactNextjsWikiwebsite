@@ -1,5 +1,15 @@
 @import '@/src/design/theme/light.css'; /* This line will be the same in CSS */
 /* CSS equivalent of the provided Less code */
+@import '@/src/design/public.css';
+.ant-message-custom-content {
+  display: flex;
+  align-items: center;
+}
+
+.ant-message-custom-content  .anticon {
+  top: 0 !important;
+}
+
 .ant-layout {
     height: 100%;
     overflow: hidden;
@@ -30,4 +40,6 @@
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 6px -1px rgba(0, 0, 0, 0.02),
       0 2px 4px 0 rgba(0, 0, 0, 0.02);
   }
+
   
+

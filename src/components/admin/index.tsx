@@ -6,18 +6,19 @@ import { Layout } from "antd";
 import "./index.css";
 import {LayoutHeader} from "./header";
 import LayoutSider from "./sider";
+import { RootState } from "@/src/redux/store";
+import LayoutFooter from "./footer/index";
 const { Content, Sider } = Layout;
 interface LayoutsProps {
-    children: ReactNode; // Explicitly define the type for children prop
+    children: ReactNode;
   }
 
 export default function Layouts({ children}:LayoutsProps) {
-//   const { isCollapse } = props;
-  const isCollapse = useSelector((state) => false);
-
+  const isCollapse = useSelector((state:RootState) => state.collapseReducer.isCollapse);
   const [collapsed, setCollapsed] = useState(false);
 
   useEffect(() => {
+    console.info(isCollapse)
     setCollapsed(isCollapse);
   }, [isCollapse]);
 
@@ -33,7 +34,7 @@ export default function Layouts({ children}:LayoutsProps) {
             <Content>
             {children}
               {/* <Outlet /> */}
-              {/* <LayoutFooter /> */}
+              <LayoutFooter />
             </Content>
           </Layout>
         </section>
