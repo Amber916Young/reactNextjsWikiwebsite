@@ -18,6 +18,7 @@ import { useEffect, useState } from "react";
 import {CategoryItem, TagsItem} from "@/src/interface/index";
 import {loadDataAPI} from "@/src/api/admin/categories";
 import {loadAllDataAPI } from "@/src/api/admin/tags";
+import RichTextEditor from "@/src/components/editor/richTextEditor";
 
 const options: SelectProps["options"] = [];
 
@@ -29,19 +30,6 @@ interface AddNewWikiProps {
   editItem?: any;
 }
 
-const modules = {
-  toolbar: [
-    [{ font: [] }],
-    [{ header: [1, 2, 3, 4, 5, 6, false] }],
-    ["bold", "italic", "underline", "strike"],
-    [{ color: [] }, { background: [] }],
-    [{ script: "sub" }, { script: "super" }],
-    ["blockquote", "code-block"],
-    [{ list: "ordered" }, { list: "bullet" }],
-    ["link", "image"],
-    ["clean"],
-  ],
-};
 
 const AddNewWiki = ({
   visible,
@@ -217,12 +205,9 @@ const AddNewWiki = ({
                 name="content"
                 rules={[{ required: true, message: "请输入正文" }]}
               >
-                {/* <ReactQuill
-                  style={{ height: "300px" }}
-                  modules={modules}
-                  theme="snow"
-                  placeholder="正文..."
-                /> */}
+
+                 <RichTextEditor html={html} setHtml={setHtml} />
+              
               </Form.Item>
             </Form>
           </Space>

@@ -58,7 +58,7 @@ const items: MenuProps["items"] = [
  * @param key
  * @returns
  */
-const findOpenKeys = (key: string, menus: any) => {
+const findOpenKeys = (key: string) => {
   const result: string[] = [];
   const findInfo = (arr: any) => {
     arr.forEach((item: any) => {
@@ -70,7 +70,7 @@ const findOpenKeys = (key: string, menus: any) => {
       }
     });
   };
-  findInfo(menus);
+  findInfo(items);
   return result;
 };
 const getOpenKeys = (keys: string | undefined): string[] => {
@@ -115,14 +115,15 @@ const findDeepPath = (key: string, menus: any) => {
 const LayoutSider: React.FC = () => {
   const pathname = usePathname();
   const router = useRouter();
-  const tmpOpenKeys = findOpenKeys(pathname, items);
-  const [selectedKeys, setSelectedKeys] = useState<string[]>(tmpOpenKeys);
-
+  // const tmpOpenKeys = findOpenKeys(pathname);
+  // const [selectedKeys, setSelectedKeys] = useState<string[]>(tmpOpenKeys);
   const [openKeys, setOpenKeys] = useState(getOpenKeys(pathname))
   const [defSelectKeys] = useState([pathname])
 
 
   const onOpenChange: MenuProps["onOpenChange"] = (keys) => {
+    console.info(keys)
+
     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1)
     const openkey: string[] = getOpenKeys(latestOpenKey)
     setOpenKeys(openkey)
@@ -132,22 +133,12 @@ const LayoutSider: React.FC = () => {
     router.push(key);
   };
 
-  useEffect(() => {
-    localStorage.setItem("selectedMenuItem", JSON.stringify(selectedKeys));
-  }, [selectedKeys]);
-  useEffect(() => {
-    const storedSelectedKeys = localStorage.getItem("selectedMenuItem");
-    if (storedSelectedKeys) {
-      setSelectedKeys(JSON.parse(storedSelectedKeys));
-    }
-  }, []);
-
   
   return (
     <Menu
       mode="inline"
       defaultSelectedKeys={defSelectKeys}
-      openKeys={openKeys}
+      defaultOpenKeys={openKeys}
       onClick={clickMenu}
       onOpenChange={onOpenChange}
       items={items}
