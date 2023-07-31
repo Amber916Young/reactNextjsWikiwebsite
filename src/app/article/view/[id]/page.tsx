@@ -11,10 +11,9 @@ type Props = {};
 
 const WebArticleView = (props: Props) => {
 
+    // @ts-ignore
     return (
         <>
-
-
             <section id="articleView" className="mt-20 bg-white">
 
                 <motion.div

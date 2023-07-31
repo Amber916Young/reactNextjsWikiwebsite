@@ -1,0 +1,10 @@
+@import '@/src/design/theme/light.css'; /* This line will be the same in CSS */
+
+.ant-breadcrumb {
+    margin: 0 20px !important;
+    color: var(--text-color-secondary);
+}
+
+.ant-breadcrumb  li:last-child {
+    color: var(--text-color);
+}

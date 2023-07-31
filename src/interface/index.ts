@@ -117,3 +117,68 @@ export interface CategoryItem {
     children: CategoryItem[];
 }
 
+
+
+export const menuList = [
+
+    {
+        key: 'group0',
+        title: {
+            icon: 'dashboard',
+            text: '数据分析'
+        },
+        children: [
+            {
+                key: '1',
+                text: '数据监控',
+                path: '/dashboard/monitor'
+            },
+            {
+                key: '2',
+                text: '数据分析',
+                path: '/dashboard/analyze'
+            }
+        ]
+    },
+
+    {
+        key: 'group1',
+        title: {
+            icon: 'dashboard',
+            text: '文章管理'
+        },
+        children: [
+            {
+                key: '3',
+                text: '文章列表',
+                path: '/articles/list/index'
+            },
+            {
+                key: '4',
+                text: '数据分析',
+                path: '/articles/history/index'
+            },
+            {
+                key: '5',
+                text: '分类管理',
+                path: '/articles/category/index'
+            },
+            {
+                key: '6',
+                text: '标签管理',
+                path: '/articles/tags/index'
+            }
+        ]
+    },
+
+    {
+        key: 'group6',
+        title: {
+            icon: 'schedule',
+            text: '关于信息',
+            path: "about/index"
+        },
+        
+    },
+
+]

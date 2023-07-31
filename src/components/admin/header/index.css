@@ -1,0 +1,54 @@
+
+@import '@/src/design/theme/light.css'; /* This line will be the same in CSS */
+
+/* CSS equivalent of the provided Less code */
+.ant-layout-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 58px;
+  padding: 0 20px 0 3px !important;
+  background: var(--card-bg) !important;
+  border-bottom: 1px solid var(--border-color-base);
+}
+
+/* .header-lf */
+.ant-layout-header .header-lf .logo {
+  width: 250px;
+  height: 58px;
+  padding-left: 20px;
+}
+
+/* .header-lf .logo-img */
+.ant-layout-header .header-lf .logo .logo-img {
+  width: 38px;
+  margin: 0 10px;
+}
+
+/* .header-lf .logo-text */
+.ant-layout-header .header-lf .logo .logo-text {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--text-color);
+  white-space: nowrap;
+}
+
+/* .collapsed */
+.ant-layout-header .header-lf .collapsed {
+  font-size: 20px;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+/* .header-ri */
+.ant-layout-header .header-ri {
+  padding-right: 12px;
+  color: var(--text-color);
+}
+
+/* .iconfont */
+.ant-layout-header .iconfont {
+  color: var(--text-color);
+}

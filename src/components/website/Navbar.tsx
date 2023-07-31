@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { BarsOutlined, CloseOutlined, EditOutlined, FormOutlined } from '@ant-design/icons';
 import Image from 'next/image';
 
-import Logo from '@/assets/images/Logo.png';
+import Logo from '@/src/assets/images/Logo.png';
 import IconButton from '@/src/components/button/IconButton';
 import { NavLinks, SelectedPage } from '@/src/interface/index';
 import Link from '@/node_modules/next/link';
