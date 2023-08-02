@@ -43,6 +43,7 @@ const AddNewWiki = ({
   const [categoryValue, setCategoryValue] = useState<string>();
   const [categoryTreeData, setCategoryTreeData] =  useState<any>(null);
   const [tagsData, setTagsData] =  useState<any>(null);
+  const [html, setHtml] = useState('');
 
   useEffect(() => {
     loadDataAPI().then((res) => {
