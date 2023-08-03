@@ -27,7 +27,12 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
-
+      linearGradientDirections: {
+        // By default, 'to' is set to 'b' (bottom)
+        // You can add more directions as needed
+        'b-t': 'to top',
+      },
+      linearGradientColors: (theme) => theme('colors'),
       screens: {
         xs: '480px',
         sm: '768px',
