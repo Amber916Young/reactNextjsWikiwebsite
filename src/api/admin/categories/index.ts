@@ -5,8 +5,8 @@ import { get, post, patch, del, put } from '@/src/utils/request';
  * @param query
  * @returns
  */
-export const loadDataAPI = (query: any = {}) =>
-  get('/api/articles', query);
+export const loadCategoryDataAPI = (query: any = {}) =>
+  get('/categories', query);
 
 /**
  * 根据id获取一个
@@ -14,7 +14,7 @@ export const loadDataAPI = (query: any = {}) =>
  * @returns
  */
 export const loadDataByIdAPI = (id: string) =>
-  get('/api/articles/' + id);
+  get('/articles/' + id);
 
 /**
  * 新增

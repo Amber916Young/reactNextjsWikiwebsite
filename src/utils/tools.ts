@@ -4,12 +4,12 @@ export const defaultImg = null;
 /**
  * 服务器地址
  */
-export const serverUrl = 'http://localhost:8080';
+export const serverUrl = 'http://localhost:8080/api';
 
 /**
  * 文件上传接口
  */
-export const uploadActionUrl = serverUrl + '/api/images/upload/wiki';
+export const uploadActionUrl = serverUrl + '/images/upload/wiki';
 
 /**
  * 设置token

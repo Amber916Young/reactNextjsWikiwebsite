@@ -1,17 +1,17 @@
 import { get, post, patch, del, put } from '@/src/utils/request';
 export const loadDataAPI = (query: any = {}) =>
-    get('/api/tags', query);
+    get('/tags', query);
 
 export const loadAllDataAPI = () =>
-    get('/api/tags/all');
+    get('/tags/all');
 
-/**
- *
+    /**
+ * /web/tags
  * @param id
  * @returns
  */
 export const loadDataByIdAPI = (id: string) =>
-    get('/api/tags/' + id);
+    get('/tags/' + id);
 
 /**
  * 新增
@@ -19,7 +19,7 @@ export const loadDataByIdAPI = (id: string) =>
  * @returns
  */
 export const insertAPI = (data: any) =>
-    post('/api/tags', data);
+    post('/tags', data);
 
 /**
  * 根据id修改
@@ -28,7 +28,7 @@ export const insertAPI = (data: any) =>
  * @returns
  */
 export const updateByIdAPI = ( data: any) =>
-    put('/api/tags', data);
+    put('/tags', data);
 
 /**
  * 根据id删除
@@ -36,7 +36,7 @@ export const updateByIdAPI = ( data: any) =>
  * @returns
  */
 export const delByIdAPI = (id: number) =>
-    del('/api/tags/' + id);
+    del('/tags/' + id);
 
 /**
  * 删除多个
@@ -44,7 +44,7 @@ export const delByIdAPI = (id: number) =>
  * @returns
  */
 export const delManyByIds = (ids: string) =>
-    del('/api/tags/remove_many?ids=' + ids);
+    del('/tags/remove_many?ids=' + ids);
 
 
 // TODO Action Log wikiactions
